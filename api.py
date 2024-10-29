@@ -66,40 +66,7 @@ llm_pipeline = pipeline(
 ner_pipeline = pipeline("ner", model="dbmdz/bert-large-cased-finetuned-conll03-english", device=device)
 
 chunks = [
-    # Work Experience Summary
-    "Work Experience Summary : Before beginning my postgraduate studies at Conestoga College, I accumulated 3 years and 11 months of professional experience across three organizations: \n"
-    "1) Intellect Design Arena Ltd. (Chennai, India): Consultant - Data Scientist (June 2021 - December 2022), Third organization i worked for. where I developed Table Structure Recognition systems using U-Net and Faster R-CNN. \n"
-    "2) TVS NEXT (Chennai, India): Second organization i worked for. Machine Learning Engineer (April 2020 - May 2021), leading projects such as the Applicant Tracking System, Acronym Classifier, and iOS object detection. \n"
-    "3) Rakuten (Bangalore, India): Data Engineer - Support (April 2019 - April 2020). First organization i worked for. I was the youngest on my team, working closely with experienced engineers on critical projects to manage Rakuten's data platform using Hadoop, Spark, and AWS. \n"
-    "In total, I have nearly four years of hands-on experience in data science, machine learning, and data engineering roles.",
-
-    # Current Academic Status
-    "Education : I completed a postgraduate program in Applied AI and Machine Learning at Conestoga College, graduating in April 2024. Prior to this, I also completed a Predictive Analytics program at Conestoga, which provided a strong foundation in data modeling, statistical analysis, and visualization. Additionally, I hold a Post Graduate Program in Data Science and Engineering from Great Lakes Institute of Management (July 2018 - March 2019), where I specialized in machine learning, data visualization, and advanced analytics. My undergraduate studies were completed at Sathyabama Institute of Science and Technology, where I earned a degree in Computer Science and Engineering (June 2014 - June 2018). These academic experiences have equipped me with a comprehensive skill set in AI, data science, and engineering, which I continue to refine through personal projects."
-
-    # Skills
-    "professional Skills Overview: Anish has expertise in data science and machine learning, with hands-on experience in deep learning, NLP, computer vision and LLM's. His technical skills include Python, SQL, TensorFlow, PyTorch, LangChain, MLFlow, Docker, and AWS, as well as Transformers and knowledge of both SQL and NoSQL databases. Anish has also developed systems for large-scale data management and is continually expanding his expertise in emerging AI and ML technologies."
-
-    # Awards
-    "Awards : Recognized with multiple 'Best Performer' awards during my time at TVS NEXT and Intellect Design Arena Ltd., awarded for exceptional contributions to project outcomes and successful implementations of complex data science solutions.",
-
-    # Certifications
-    "Certifications : Certified in Big Data by FITA Academy, and in Cloud Computing from Sathyabama Institute of Science and Technology, enhancing my expertise in managing large-scale data systems and cloud-based platforms.",
-
-    # Contact Information
-    "Contact Information : Email: krishnananish24@gmail.com, Phone: +1 (647)-939-9682. You can also reach out through the Contact Page on my website.",
-
-    # Key Past Projects
-    "Key Past Projects : In my previous roles, I contributed to the following projects that involved real-world applications of data engineering and machine learning:\n"
-    "1) **Rakuten Migration Project**: In this project, I worked on performance optimization, incident resolution, and ensuring smooth data platform migration. My responsibilities included managing job failures, coordinating resolutions, and using monitoring tools like Nagios to maintain system stability during high-traffic events. I optimized Hadoop and Spark data pipelines and ensured data processing continuity across Rakuten’s AWS infrastructure.\n\n"
-    "2) **Acronym Classifier**: Developed to extract and expand abbreviations in documents, particularly in legal contexts, this project combined a custom extraction method with the Blackstone NLP model to achieve high accuracy. The system leverages regex heuristics and NLP techniques for expansion prediction and is deployed in Docker to support real-time document processing.\n\n"
-    "3) **Applicant Tracking System (ATS)**: This ATS automates resume parsing and candidate ranking with NLP and Named Entity Recognition (NER) modules. It identifies and extracts skills, roles, and qualifications from resumes, using similarity scoring to match candidates to job descriptions. The system assists recruiters by providing match scores that streamline candidate selection.\n\n"
-    "4) **Table Structure Recognition**: This system extracts structured data from both bordered and borderless tables within images. For bordered tables, I implemented a U-Net model to recognize cell boundaries. For borderless tables, a Faster R-CNN with ResNet-101 was used to identify text and spacing patterns. Post-processing techniques, including bounding box merging, handle complex structures such as rowspan and colspan, providing structured datasets for easy analysis.",
-
-    # Personal Projects
-    "Personal and Current Projects: Alongside my studies, I am working on personal projects to expand my technical expertise. Some of these include:\n"
-    "- **AI-Powered Chatbot**: I developed a chatbot for my portfolio website using webflow, designed to answer questions about my professional background and skill set. This chatbot combines LangChain with a Retrieval-Augmented Generation (RAG) system, leveraging natural language understanding and llama3.2 models to provide accurate and context-aware responses.\n\n"
-    "- **SQL Automation Project**: This project generates SQL queries using an llm to automate the resolution of common query failures. It leverages knowledge graphs to gather context about the database and related queries, enabling smarter and more accurate query generation. Additionally, it automates ticket creation in Jira for unresolved issues, streamlining the process of handling simpler failures and reducing the need for manual intervention in incident resolution. This project is being work on currently"
-]
+    ''' Enter Your Chunks Here''']
 
 # Set up embeddings and vector store
 logging.info("Setting up embeddings and vector store...")
@@ -117,15 +84,7 @@ def process_question(question: str):
     context = " ".join([chunk.page_content for chunk in relevant_chunks])
 
     # Generate final answer using all relevant chunks
-    answer_prompt = f"""Answer the following question based strictly on the provided context. Respond concisely, 
-    and only include the requested information without adding unrelated details, signatures, or formal notes. Only 
-    talk about the technical details when asked about the projects. Assume Anish is answering the questions himself, 
-    using first-person language. If asked about technical skills not mentioned in the skill list, state that Anish is 
-    curious and continuously learning new technologies. For off-topic questions not related to Anish’s professional 
-    work, give a brief professional reason and decline to answer. Only answer with facts from the provided context. 
-    Do not add extra context, personal notes, or assumptions. Use professional structured answers with proper 
-    punctuation. When asked about a project give brief explanation about the project. If talking about organizations 
-    always mention the name of the organization.
+    answer_prompt = f""" Enter your promt to the model here
 
     Context: {context}
 
